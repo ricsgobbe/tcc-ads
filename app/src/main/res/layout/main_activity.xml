@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/id_app_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/layout_app_bar"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/id_tab_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/id_app_bar_main" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/id_main_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_tab_main"
+        />
+
+    <TextView
+        android:id="@+id/id_main_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/id_tab_main"
+        android:layout_marginLeft="@dimen/margin_left"
+        android:layout_marginBottom="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:text="Manager" />
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/id_main_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="58dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:elevation="2dp"
+        android:visibility="invisible">
+        <EditText
+            android:id="@+id/id_editext_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:autoText="true"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:padding="8dp"
+            />
+
+    </android.support.v7.widget.CardView>
+
+    <ImageView
+        android:id="@+id/id_imageview_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_search_white_24dp"
+        android:layout_alignRight="@id/id_main_cardview"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:clickable="true"
+        android:visibility="invisible"
+       />
+
+
+</RelativeLayout>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Manager</string>
+    <string name="login_bar">Login</string>
+    <string name="sign_in">Sign in</string>
+</resources>

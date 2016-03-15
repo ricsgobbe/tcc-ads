@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PressedButton" parent="android:style/Widget.Holo.Button">
+        <item name="android:background">@drawable/button_effect</item>
+        <item name="android:colorControlHighlight">@color/white</item>
+    </style>
+</resources>
