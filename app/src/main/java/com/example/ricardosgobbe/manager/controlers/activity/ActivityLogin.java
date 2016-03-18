@@ -18,6 +18,8 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.example.ricardosgobbe.manager.R;
+import com.example.ricardosgobbe.manager.controlers.objects.User;
+import com.example.ricardosgobbe.manager.controlers.task.UserAsyncTask;
 
 /**
  * Created by ricardo.sgobbe on 28/01/2016.
@@ -96,8 +98,24 @@ public class ActivityLogin extends AppCompatActivity {
 
         if (!cancel) {
             progressBar(true);
-            UserLoginService login = new UserLoginService();
-            login.execute((Void[]) null);
+           /* UserLoginService login = new UserLoginService();
+            login.execute((Void[]) null);*/
+            UserAsyncTask task = new UserAsyncTask(){
+                @Override
+                protected void onPostExecute(User user) {
+                    mTask = null;
+                    progressBar(false);
+                    if (user != null) {
+                        //go to activity
+                        Intent goToMainActivity = new Intent(ActivityLogin.this, MainActivity.class);
+                        startActivity(goToMainActivity);
+                    } else {
+                        Toast.makeText(getBaseContext(), "User or password incorrect ", Toast.LENGTH_LONG).show();
+                        mPasswordField.requestFocus();
+                    }
+                }
+            };
+            task.execute();
         } else
             requestFocus.requestFocus();
     }
