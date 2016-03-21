@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 /**
  * Created by ricardo.sgobbe on 18/03/2016.
@@ -15,8 +16,8 @@ import java.net.URL;
 public class AuthService {
     private static final String mURL = "http://10.11.50.167/user";
 
-    public static User getAuth(){
-        User user = null;
+    public static List<User> getAuth(){
+        List<User> user = null;
         try {
             URL url = new URL(mURL);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();

@@ -3,13 +3,21 @@ package com.example.ricardosgobbe.manager.controlers.objects;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by ricardo.sgobbe on 03/02/2016.
  */
 public class User implements Parcelable {
+    @JsonProperty("name")
     private String name;
+    @JsonProperty("email")
     private String email;
+    @JsonProperty("user")
     private String user;
+    @JsonProperty("password")
     private String password;
 
 

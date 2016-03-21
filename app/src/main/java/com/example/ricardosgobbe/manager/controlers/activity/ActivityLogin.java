@@ -21,6 +21,8 @@ import com.example.ricardosgobbe.manager.R;
 import com.example.ricardosgobbe.manager.controlers.objects.User;
 import com.example.ricardosgobbe.manager.controlers.task.UserAsyncTask;
 
+import java.util.List;
+
 /**
  * Created by ricardo.sgobbe on 28/01/2016.
  */
@@ -102,7 +104,7 @@ public class ActivityLogin extends AppCompatActivity {
             login.execute((Void[]) null);*/
             UserAsyncTask task = new UserAsyncTask(){
                 @Override
-                protected void onPostExecute(User user) {
+                protected void onPostExecute(List<User> user) {
                     mTask = null;
                     progressBar(false);
                     if (user != null) {
