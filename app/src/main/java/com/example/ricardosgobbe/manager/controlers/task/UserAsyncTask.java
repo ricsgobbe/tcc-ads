@@ -14,6 +14,6 @@ import java.util.List;
 public class UserAsyncTask extends AsyncTask<Void, Void, List<User>> {
     @Override
     protected List<User> doInBackground(Void... params) {
-       return LoginService.getUser();
+       return AuthService.getAuth();
     }
 }

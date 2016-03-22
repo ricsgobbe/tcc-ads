@@ -8,8 +8,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.ricardosgobbe.manager.R;
+import com.example.ricardosgobbe.manager.controlers.http.UserPostService;
+import com.example.ricardosgobbe.manager.controlers.objects.User;
+import com.example.ricardosgobbe.manager.controlers.task.PostUserAsync;
 
 /**
  * Created by ricardo.sgobbe on 02/02/2016.
@@ -72,6 +76,20 @@ public class ActivityRegisterLogin extends AppCompatActivity {
             requestFocus.requestFocus();
         }else{
             //save user information on db
+            User user = new User();
+            user.setName(mNameTxt.getText().toString());
+            user.setEmail(mEmailTxt.getText().toString());
+            user.setUser(mUserTxt.getText().toString());
+            user.setPassword(mPasswordTxt.getText().toString());
+            PostUserAsync postUser = new PostUserAsync(){
+                @Override
+                protected void onPostExecute(Boolean aBoolean) {
+                    if(aBoolean){
+                        Toast.makeText(ActivityRegisterLogin.this, "Login Registred !", Toast.LENGTH_LONG).show();
+                    }
+                }
+            };
+            postUser.execute(user);
             ActivityRegisterLogin.this.finish();
         }
     }

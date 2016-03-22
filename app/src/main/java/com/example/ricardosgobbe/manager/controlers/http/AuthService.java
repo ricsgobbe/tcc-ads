@@ -3,6 +3,7 @@ package com.example.ricardosgobbe.manager.controlers.http;
 import android.util.Base64;
 
 import com.example.ricardosgobbe.manager.controlers.objects.User;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -21,7 +22,7 @@ public class AuthService {
         try {
             URL url = new URL(mURL);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            String sign = "sws";
+            String sign = "binhotheking:12345";
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
             conn.setRequestProperty("Authorization", "Basic" + Base64.encodeToString(sign.getBytes(), Base64.NO_WRAP).replace("\n", ""));
@@ -29,7 +30,6 @@ public class AuthService {
             conn.setReadTimeout(2000);
 
             int resultCode = conn.getResponseCode();
-
             if(resultCode == HttpURLConnection.HTTP_OK){
                 user = LoginService.getUser();
                 conn.disconnect();
